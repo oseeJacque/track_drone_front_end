@@ -1,6 +1,5 @@
 setuptools>=65.5.0
 wheel
-python3-distutils
 altair==5.0.1
 attrs==23.1.0
 blinker==1.6.2
