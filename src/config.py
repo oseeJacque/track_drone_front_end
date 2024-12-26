@@ -11,5 +11,5 @@ image_path = os.path.join(test_data_dir, "13.jpg")
 
 print(test_data_dir) 
 
-base_url = "http://127.0.0.1:5000"
+base_url = "http://185.98.138.41:5000"
 

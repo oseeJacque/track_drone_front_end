@@ -145,7 +145,7 @@ with frame1:
                             img_url = responses["image"]
 
                 except Exception as e:
-                    error_message = "No drone detect in your file "
+                    error_message = "La vidéo doit être au format MP4. Veuillez charger un fichier valide."
             else:
                 if st.session_state["image_path"] != "":
                     pil_image = Image.open(st.session_state["image_path"])
