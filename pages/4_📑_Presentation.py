@@ -1,10 +1,11 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 
 # URL de l'image
-image_url = "/home/osee/projects/dronetrack_front_end-master/pages/drone_track1.png"  # Remplacez par l'URL de l'image directe
+image_url = os.path.join(os.path.dirname(__file__), 'drone_track1.png')  # Remplacez par l'URL de l'image directe
 
 
 # Centrage du titre avec HTML
@@ -140,12 +141,15 @@ La matrice de confusion illustre les performances du modèle pour classifier cor
 col1, col2 = st.columns(2)
 
 # Affichage de l'image de la matrice de confusion brute dans la première colonne
+image_path_confusion_matrix = os.path.join(os.path.dirname(__file__), 'confusion_matrix.png')
+image_path_confusion_matrix_normalized = os.path.join(os.path.dirname(__file__), 'confusion_matrix_normalized.png')
+
 with col1:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/confusion_matrix.png", caption="Matrice de confusion", use_column_width=True)
+    st.image(image_path_confusion_matrix, caption="Matrice de confusion", use_column_width=True)
 
 # Affichage de l'image de la matrice de confusion normalisée dans la deuxième colonne
 with col2:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/confusion_matrix.png", caption="Matrice de confusion normalisée", use_column_width=True)
+    st.image(image_path_confusion_matrix_normalized, caption="Matrice de confusion normalisée", use_column_width=True)
 
 
 # Conclusion de la section
@@ -165,18 +169,21 @@ st.write("""
 
 # Créer trois colonnes pour afficher les courbes
 col1, col2, col3 = st.columns(3)
+image_path_F1_curve = os.path.join(os.path.dirname(__file__), 'F1_curve.png')
+image_path_recall  = os.path.join(os.path.dirname(__file__), 'R_curve.png')
+image_path_p_cuve = os.path.join(os.path.dirname(__file__), 'P_curve.png')
 
 # Affichage de la courbe F1 dans la première colonne
 with col1:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/F1_curve.png", caption="Courbe F1", use_column_width=True)
+    st.image(image_path_F1_curve, caption="Courbe F1", use_column_width=True)
 
 # Affichage de la courbe Recall dans la deuxième colonne
 with col2:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/R_curve.png", caption="Courbe Recall", use_column_width=True)
+    st.image(image_path_recall, caption="Courbe Recall", use_column_width=True)
 
 # Affichage de la courbe Précision dans la troisième colonne
 with col3:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/P_curve.png", caption="Courbe Précision", use_column_width=True)
+    st.image(image_path_p_cuve, caption="Courbe Précision", use_column_width=True)
 
 # Conclusion de la section
 st.write("""
@@ -197,20 +204,25 @@ Les résultats visuels incluent :
 
 # Créer des colonnes pour afficher les images côte à côte
 col1, col2, = st.columns(2)
-
+image_path_train_batch0 = os.path.join(os.path.dirname(__file__), 'train_batch0.jpg')
+image_path_train_batch3960  = os.path.join(os.path.dirname(__file__), 'train_batch3960.jpg')
 # Affichage des images dans les 4 colonnes
 with col1:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/train_batch0.jpg", caption="Train Batch 1", use_column_width=True)
+    st.image(image_path_train_batch0, caption="Train Batch 1", use_column_width=True)
 
 with col2:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/train_batch3960.jpg", caption="Train Batch 2", use_column_width=True)
+    st.image(image_path_train_batch3960, caption="Train Batch 2", use_column_width=True)
+
 
 col3, col4 = st.columns(2)
+image_path_val_train_batch0 = os.path.join(os.path.dirname(__file__), 'val_batch1_pred.jpg')
+image_path_val_train_batch3960  = os.path.join(os.path.dirname(__file__), 'val_batch2_pred.jpg')
+
 with col3:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/val_batch1_pred.jpg", caption="Validation Batch 1", use_column_width=True)
+    st.image(image_path_val_train_batch0, caption="Validation Batch 1", use_column_width=True)
 
 with col4:
-    st.image("/home/osee/projects/dronetrack_front_end-master/pages/val_batch2_pred.jpg", caption="Validation Batch 2", use_column_width=True)
+    st.image(image_path_val_train_batch3960, caption="Validation Batch 2", use_column_width=True)
 
 # Conclusion de la section
 st.write("""
@@ -255,10 +267,12 @@ st.markdown("<h2 style='text-align: center;'>Résultats sur usage du modèle</h2
 # Créer deux colonnes pour afficher une image et une vidéo côte à côte
 col1, col2 = st.columns(2)
 
+image_path_track_image = os.path.join(os.path.dirname(__file__), 'track_drone_in_image.jpg')
+video_path  = os.path.join(os.path.dirname(__file__), 'fixed_video.mp4')
 
-st.image("/home/osee/projects/dronetrack_front_end-master/pages/track_drone_in_image.jpg", 
+st.image(image_path_track_image, 
              caption="Illustration de l'usage du modèle", 
              use_column_width=True)
              
-st.video("/home/osee/projects/dronetrack_front_end-master/pages/fixed_video.mp4", 
+st.video(video_path, 
              format="video/mp4")
