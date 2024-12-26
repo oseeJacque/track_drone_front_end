@@ -30,6 +30,9 @@ csv_file_url = ""
 input_video_path = "temp_video.mp4"
 output_video_path = "converted_video.mp4"
 
+if "image_path" not in st.session_state:
+    st.session_state["image_path"] = os.path.join(os.path.dirname(__file__), '2.jpg')
+
 with st.sidebar:
     st.sidebar.image(Image.open(os.path.join(os.getcwd(), "src/testdata/13.jpg")), use_column_width=True, width=st.sidebar.width)
 
